@@ -1,0 +1,2 @@
+git secrets --add -- '-----BEGIN .*-----'
+git secrets --add -- 'BEGIN'
