@@ -1,18 +1,18 @@
 import { Address } from '../../types';
 
-export type PoolState = {
-  // TODO: poolState is the state of event
-  // subscriber. This should be the minimum
-  // set of parameters required to compute
-  // pool prices. Complete me!
+export type HydrexFiData = {
+  path: {
+    tokenIn: Address;
+    tokenOut: Address;
+    deployer: Address;
+  }[];
+  feeOnTransfer: boolean;
+  isApproved?: boolean;
 };
 
-export type HydrexFiData = {
-  // TODO: HydrexFiData is the dex data that is
-  // returned by the API that can be used for
-  // tx building. The data structure should be minimal.
-  // Complete me!
-  exchange: Address;
+export type HydrexDataWithFee = {
+  tokenIn: Address;
+  tokenOut: Address;
 };
 
 export type DexParams = {
@@ -21,6 +21,29 @@ export type DexParams = {
   router: Address;
   subgraphURL: string;
   chunksCount: number;
+};
+
+export type Pool = {
+  poolAddress: Address;
+  token0: Address;
+  token1: Address;
+  deployer: string;
+  tvlUSD: number;
+};
+
+export type FactoryState = Record<string, never>;
+
+export type PoolState = {
+  // Algebra Integral pool state
+  sqrtPriceX96: bigint;
+  liquidity: bigint;
+  tick: number;
+  feeGrowthGlobal0X128: bigint;
+  feeGrowthGlobal1X128: bigint;
+  // Optional pool metadata
+  token0?: Address;
+  token1?: Address;
+  fee?: number;
 };
 
 export enum HydrexFiFunctions {
