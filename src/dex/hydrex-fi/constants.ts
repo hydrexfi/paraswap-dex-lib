@@ -1,0 +1,3 @@
+export const HYDREX_FI_QUOTE_GASLIMIT = 2_000_000;
+export const HYDREX_FI_GAS_COST = 180_000;
+export const HYDREX_FI_EFFICIENCY_FACTOR = 3;
